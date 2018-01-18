@@ -72,9 +72,15 @@ class ViewController: UIViewController {
                 databaseReference = Database.database().reference()
                 
                 let userDetails:[String:String] = ["firstName":firstName, "lastName":lastName]
-                
          databaseReference.child("users").child(user.uid).setValue(["userDetails":userDetails])
                 
+             user.sendEmailVerification(completion: nil)
+             self.showMessage(messageToDisplay: "We have sent you an email message. Please check your email and click on the link to verify your email address and complete your registration")
+ 
+             let signInPage  = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+                
+                let appDelegate = UIApplication.shared.delegate
+                appDelegate?.window??.rootViewController = signInPage
                 
             }
             
@@ -85,6 +91,7 @@ class ViewController: UIViewController {
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
     }
+
     
     public func showMessage(messageToDisplay:String)
     {

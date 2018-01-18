@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		12C82F65D92E9F33AB0BDD7A /* Pods_MusicAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CCA90FF5D63790292F0C46 /* Pods_MusicAppTests.framework */; };
 		49C689AD2BAF1A4F61385309 /* Pods_MusicAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7877C9F661B9080D6EE901AF /* Pods_MusicAppUITests.framework */; };
+		8A82C4F6200E4EBB0033F9B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C4F5200E4EBB0033F9B3 /* SignInViewController.swift */; };
+		8A82C4F8200E5A290033F9B3 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C4F7200E5A290033F9B3 /* MainPageViewController.swift */; };
 		8A8707D0200AB0FD002F737A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8707CF200AB0FD002F737A /* AppDelegate.swift */; };
 		8A8707D2200AB0FD002F737A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8707D1200AB0FD002F737A /* ViewController.swift */; };
 		8A8707D5200AB0FD002F737A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8A8707D3200AB0FD002F737A /* Main.storyboard */; };
@@ -17,6 +19,7 @@
 		8A8707E5200AB0FD002F737A /* MusicAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8707E4200AB0FD002F737A /* MusicAppTests.swift */; };
 		8A8707F0200AB0FD002F737A /* MusicAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8707EF200AB0FD002F737A /* MusicAppUITests.swift */; };
 		8A8707FE200AB533002F737A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A8707FD200AB533002F737A /* GoogleService-Info.plist */; };
+		8ACCD4C62010EEE3003CFDB1 /* PasswordResetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8ACCD4C52010EEE3003CFDB1 /* PasswordResetViewController.swift */; };
 		BE40E748BAECEF35DDCB47A8 /* Pods_MusicApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D1AE6C460AF8DFC067F32504 /* Pods_MusicApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,8 @@
 		7877C9F661B9080D6EE901AF /* Pods_MusicAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4F4229C2697A41C76BD6F6 /* Pods-MusicAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicAppTests/Pods-MusicAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7FA77737AE81DC3B71EC47D0 /* Pods-MusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicApp/Pods-MusicApp.release.xcconfig"; sourceTree = "<group>"; };
+		8A82C4F5200E4EBB0033F9B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		8A82C4F7200E5A290033F9B3 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		8A8707CC200AB0FD002F737A /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8A8707CF200AB0FD002F737A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8A8707D1200AB0FD002F737A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -58,6 +63,7 @@
 		8A8707EF200AB0FD002F737A /* MusicAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicAppUITests.swift; sourceTree = "<group>"; };
 		8A8707F1200AB0FD002F737A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8A8707FD200AB533002F737A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8ACCD4C52010EEE3003CFDB1 /* PasswordResetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordResetViewController.swift; sourceTree = "<group>"; };
 		A2F3599B96CDB7B4496C9114 /* Pods-MusicApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicApp/Pods-MusicApp.debug.xcconfig"; sourceTree = "<group>"; };
 		B00D2B5E06391C9A891A0F7E /* Pods-MusicAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MusicAppUITests/Pods-MusicAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D1AE6C460AF8DFC067F32504 /* Pods_MusicApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -131,11 +137,14 @@
 			children = (
 				8A8707CF200AB0FD002F737A /* AppDelegate.swift */,
 				8A8707D1200AB0FD002F737A /* ViewController.swift */,
+				8A82C4F5200E4EBB0033F9B3 /* SignInViewController.swift */,
 				8A8707D3200AB0FD002F737A /* Main.storyboard */,
 				8A8707D6200AB0FD002F737A /* Assets.xcassets */,
 				8A8707D8200AB0FD002F737A /* LaunchScreen.storyboard */,
 				8A8707DB200AB0FD002F737A /* Info.plist */,
 				8A8707FD200AB533002F737A /* GoogleService-Info.plist */,
+				8A82C4F7200E5A290033F9B3 /* MainPageViewController.swift */,
+				8ACCD4C52010EEE3003CFDB1 /* PasswordResetViewController.swift */,
 			);
 			path = MusicApp;
 			sourceTree = "<group>";
@@ -468,8 +477,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A82C4F8200E5A290033F9B3 /* MainPageViewController.swift in Sources */,
+				8ACCD4C62010EEE3003CFDB1 /* PasswordResetViewController.swift in Sources */,
 				8A8707D2200AB0FD002F737A /* ViewController.swift in Sources */,
 				8A8707D0200AB0FD002F737A /* AppDelegate.swift in Sources */,
+				8A82C4F6200E4EBB0033F9B3 /* SignInViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
