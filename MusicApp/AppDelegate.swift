@@ -59,6 +59,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // custom code to handle push while app is in the foreground
         print("Handle push from foreground \(notification.request.content.userInfo)")
         
+        // Reading message body
+        let dict = notification.request.content.userInfo["aps"] as! NSDictionary
+        
+        var messageBody:String?
+        messageBody = dict["alert"] as? String
+        print("Message body is \(messageBody!) ")
+ 
         // Or let iOS to display message
         completionHandler([.alert,.sound, .badge])
     }
