@@ -9,6 +9,7 @@ target 'MusicApp' do
   pod 'Firebase/Core'
   pod 'Firebase/Auth'
   pod 'Firebase/Database'
+  pod 'Firebase/Messaging'
 
   target 'MusicAppTests' do
     inherit! :search_paths
