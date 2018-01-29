@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import FirebaseMessaging
 
 class ViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -75,6 +76,12 @@ class ViewController: UIViewController {
          databaseReference.child("users").child(user.uid).setValue(["userDetails":userDetails])
                 
              user.sendEmailVerification(completion: nil)
+                
+            // Subscribe to topic
+            Messaging.messaging().subscribe(toTopic: "Canada")
+            //Messaging.messaging().unsubscribe(fromTopic: "Canada")
+                
+ 
              self.showMessage(messageToDisplay: "We have sent you an email message. Please check your email and click on the link to verify your email address and complete your registration")
  
              let signInPage  = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController

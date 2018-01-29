@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseDatabase
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var userEmailAddressTextField: UITextField!
@@ -46,6 +47,8 @@ class SignInViewController: UIViewController {
             
             if user != nil
             {
+                self.storeTokens()
+                
                 if !(user?.isEmailVerified)!
                 {
                     self.needToVerifyEmail()
@@ -108,6 +111,30 @@ class SignInViewController: UIViewController {
         alertController.addAction(OKAction)
         
         self.present(alertController, animated: true, completion:nil)
+    }
+    
+    private func storeTokens()
+    {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        
+        var databaseReference: DatabaseReference!
+        databaseReference = Database.database().reference()
+        
+        let currentUser = Auth.auth().currentUser
+        
+        if let apnsToken = appDelegate.sharedData["apnsToken"]
+        {
+            let userDbRef =  databaseReference.child("users").child(currentUser!.uid)
+            userDbRef.child("apnsToken").setValue(apnsToken)
+            appDelegate.sharedData.removeValue(forKey: "apnsToken")
+        }
+        
+        if let instanceIdToken = appDelegate.sharedData["instanceIdToken"]
+        {
+            let userDbRef =  databaseReference.child("users").child(currentUser!.uid)
+            userDbRef.child("instanceIdToken").setValue(instanceIdToken)
+            appDelegate.sharedData.removeValue(forKey: "instanceIdToken")
+        }
     }
     
 

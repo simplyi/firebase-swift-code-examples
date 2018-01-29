@@ -15,7 +15,7 @@ import UserNotifications
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var window: UIWindow?
-
+    var sharedData = [String:String]()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
@@ -37,7 +37,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         
         application.registerForRemoteNotifications()
-        
+
         FirebaseApp.configure()
         return true
     }
@@ -46,6 +46,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("APNs token retrieved: \(deviceToken)")
         
+        var token = ""
+        for i in 0..<deviceToken.count {
+            token = token + String(format: "%02.2hhx", arguments: [deviceToken[i]])
+        }
+        
+        sharedData["apnsToken"] = token
+        
+        print("Registration succeeded! Token: ", token)
+        
+        if let instanceIdToken = InstanceID.instanceID().token() {
+            print("New token \(instanceIdToken)")
+            sharedData["instanceIdToken"] = instanceIdToken
+        }
+ 
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
@@ -59,22 +73,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         // custom code to handle push while app is in the foreground
         print("Handle push from foreground \(notification.request.content.userInfo)")
         
+        if let season = notification.request.content.userInfo["season"]
+        {
+            print("Season: \(season)")
+        }
+        
         // Reading message body
         let dict = notification.request.content.userInfo["aps"] as! NSDictionary
         
         var messageBody:String?
-        messageBody = dict["alert"] as? String
+        var messageTitle:String = "Alert"
+        
+        if let alertDict = dict["alert"] as? Dictionary<String, String> {
+            messageBody = alertDict["body"]!
+            if alertDict["title"] != nil { messageTitle  = alertDict["title"]! }
+            
+        } else {
+            messageBody = dict["alert"] as? String
+        }
+        
         print("Message body is \(messageBody!) ")
+        print("Message messageTitle is \(messageTitle) ")
  
         // Or let iOS to display message
         completionHandler([.alert,.sound, .badge])
+       // self.showAlertAppDelegate(title: messageTitle, message: messageBody!, buttonTitle: "Ok", window: self.window!)
     }
     
     @available(iOS 10.0, *)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         // if you set a member variable in didReceiveRemoteNotification, you  will know if this is from closed or background
         print("Handle push from background or closed \(response.notification.request.content.userInfo)")
-        
+        updateBadgeCount()
         completionHandler()
     }
     
@@ -82,6 +112,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
         // Print full message.
         print(userInfo)
+    }
+    
+    func showAlertAppDelegate(title: String,message : String,buttonTitle: String,window: UIWindow){
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertControllerStyle.alert)
+        alert.addAction(UIAlertAction(title: buttonTitle, style: UIAlertActionStyle.default, handler: nil))
+        window.rootViewController?.present(alert, animated: false, completion: nil)
     }
     
 
@@ -105,6 +141,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    }
+    
+    func updateBadgeCount()
+    {
+        var badgeCount = UIApplication.shared.applicationIconBadgeNumber
+        if badgeCount > 0
+        {
+            badgeCount = badgeCount-1
+        }
+        UIApplication.shared.applicationIconBadgeNumber = badgeCount
     }
 
 
