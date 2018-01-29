@@ -109,9 +109,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     }
     
     // [START receive_message]
-    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
-        // Print full message.
-        print(userInfo)
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        
+        print(" Entire message \(userInfo)")
+        print("Article avaialble for download: \(userInfo["articleId"]!)")
+        
+        let state : UIApplicationState = application.applicationState
+        switch state {
+        case UIApplicationState.active:
+            print("If needed notify user about the message")
+        default:
+            print("Run code to download content")
+        }
+        
+        completionHandler(UIBackgroundFetchResult.newData)
     }
     
     func showAlertAppDelegate(title: String,message : String,buttonTitle: String,window: UIWindow){
@@ -152,7 +163,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         }
         UIApplication.shared.applicationIconBadgeNumber = badgeCount
     }
-
 
 }
 
