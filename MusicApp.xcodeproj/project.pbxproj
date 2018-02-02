@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		12C82F65D92E9F33AB0BDD7A /* Pods_MusicAppTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49CCA90FF5D63790292F0C46 /* Pods_MusicAppTests.framework */; };
 		49C689AD2BAF1A4F61385309 /* Pods_MusicAppUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7877C9F661B9080D6EE901AF /* Pods_MusicAppUITests.framework */; };
+		8A0787462021433C00C876BC /* placeholder.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 8A0787452021433B00C876BC /* placeholder.jpg */; };
 		8A82C4F6200E4EBB0033F9B3 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C4F5200E4EBB0033F9B3 /* SignInViewController.swift */; };
 		8A82C4F8200E5A290033F9B3 /* MainPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A82C4F7200E5A290033F9B3 /* MainPageViewController.swift */; };
 		8A8707D0200AB0FD002F737A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8707CF200AB0FD002F737A /* AppDelegate.swift */; };
@@ -47,6 +48,7 @@
 		7877C9F661B9080D6EE901AF /* Pods_MusicAppUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MusicAppUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D4F4229C2697A41C76BD6F6 /* Pods-MusicAppTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicAppTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicAppTests/Pods-MusicAppTests.release.xcconfig"; sourceTree = "<group>"; };
 		7FA77737AE81DC3B71EC47D0 /* Pods-MusicApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MusicApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-MusicApp/Pods-MusicApp.release.xcconfig"; sourceTree = "<group>"; };
+		8A0787452021433B00C876BC /* placeholder.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = placeholder.jpg; sourceTree = "<group>"; };
 		8A82C4F5200E4EBB0033F9B3 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		8A82C4F7200E5A290033F9B3 /* MainPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPageViewController.swift; sourceTree = "<group>"; };
 		8A8707CC200AB0FD002F737A /* MusicApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MusicApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,6 +138,7 @@
 		8A8707CE200AB0FD002F737A /* MusicApp */ = {
 			isa = PBXGroup;
 			children = (
+				8A0787452021433B00C876BC /* placeholder.jpg */,
 				8AC48A502013C83E00161839 /* MusicApp.entitlements */,
 				8A8707CF200AB0FD002F737A /* AppDelegate.swift */,
 				8A8707D1200AB0FD002F737A /* ViewController.swift */,
@@ -306,6 +309,7 @@
 				8A8707DA200AB0FD002F737A /* LaunchScreen.storyboard in Resources */,
 				8A8707FE200AB533002F737A /* GoogleService-Info.plist in Resources */,
 				8A8707D7200AB0FD002F737A /* Assets.xcassets in Resources */,
+				8A0787462021433C00C876BC /* placeholder.jpg in Resources */,
 				8A8707D5200AB0FD002F737A /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -418,6 +422,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
@@ -426,6 +431,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
