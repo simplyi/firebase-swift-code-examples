@@ -36,9 +36,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             application.registerUserNotificationSettings(settings)
         }
         
+        FirebaseApp.configure()
         application.registerForRemoteNotifications()
 
-        FirebaseApp.configure()
+
+        
+        //Auth.auth().addStateDidChangeListener { (auth, user) in
+            if Auth.auth().currentUser != nil && Auth.auth().currentUser!.isEmailVerified {
+                let mainStoryBoard: UIStoryboard = UIStoryboard(name:"Main", bundle:nil)
+                let nextView: MainPageViewController = mainStoryBoard.instantiateViewController(withIdentifier: "MainPageViewController") as! MainPageViewController
+                self.window?.rootViewController = nextView
+            }
+        //}
         return true
     }
     
@@ -59,7 +68,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             print("New token \(instanceIdToken)")
             sharedData["instanceIdToken"] = instanceIdToken
         }
- 
     }
     
     func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {

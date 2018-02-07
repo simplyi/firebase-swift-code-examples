@@ -195,6 +195,7 @@
 				8A8707CA200AB0FD002F737A /* Resources */,
 				3A58EB1FFF5B62C921B8B732 /* [CP] Embed Pods Frameworks */,
 				153B18538DDC9391ACE67A12 /* [CP] Copy Pods Resources */,
+				8A3616562024BC0D00607733 /* Upload Symbol Files to Firebase */,
 			);
 			buildRules = (
 			);
@@ -454,6 +455,20 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MusicAppUITests/Pods-MusicAppUITests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		8A3616562024BC0D00607733 /* Upload Symbol Files to Firebase */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Upload Symbol Files to Firebase";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Replace this with the GOOGLE_APP_ID from your GoogleService-Info.plist file\nGOOGLE_APP_ID=1:14181410023:ios:0f56324e91f21a28\n\n# Replace the /Path/To/ServiceAccount.json with the path to the key you just downloaded\n\"${PODS_ROOT}\"/FirebaseCrash/upload-sym \"${PROJECT_DIR}/Keys/musicapp-87b38-firebase-crashreporting-055mx-1363d842a0.json\"";
 		};
 		CB6F81C03EE00BDB4D3C8736 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;

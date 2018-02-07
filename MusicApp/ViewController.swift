@@ -10,6 +10,7 @@ import UIKit
 import FirebaseAuth
 import FirebaseDatabase
 import FirebaseMessaging
+import Firebase
 
 class ViewController: UIViewController {
     @IBOutlet weak var firstNameTextField: UITextField!
@@ -69,6 +70,9 @@ class ViewController: UIViewController {
             }
             
             if let user = user {
+               
+              Analytics.logEvent(AnalyticsEventSignUp, parameters: nil)
+                
                 var databaseReference: DatabaseReference!
                 databaseReference = Database.database().reference()
                 

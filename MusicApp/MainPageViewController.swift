@@ -12,6 +12,7 @@ import FirebaseDatabase
 import MobileCoreServices
 import FirebaseStorage
 import FirebaseStorageUI
+import Firebase
 
 class MainPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -83,6 +84,9 @@ class MainPageViewController: UIViewController, UIImagePickerControllerDelegate,
     
     @IBAction func logoutButtonTapped(_ sender: Any) {
         do {
+            
+            Analytics.logEvent("signout", parameters: nil)
+            
            try Auth.auth().signOut()
             
             let signInPage  = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController

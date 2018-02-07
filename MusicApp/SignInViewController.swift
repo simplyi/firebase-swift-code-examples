@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import FirebaseDatabase
+import Firebase
 
 class SignInViewController: UIViewController {
     @IBOutlet weak var userEmailAddressTextField: UITextField!
@@ -26,6 +27,7 @@ class SignInViewController: UIViewController {
     }
  
     @IBAction func signInButtonTapped(_ sender: Any) {
+ 
      guard let userEmail = userEmailAddressTextField.text, !userEmail.isEmpty else {
             self.showMessage(messageToDisplay: "User email is required")
             return;
@@ -47,6 +49,8 @@ class SignInViewController: UIViewController {
             
             if user != nil
             {
+                Analytics.logEvent(AnalyticsEventLogin, parameters: nil)
+                
                 self.storeTokens()
                 
                 if !(user?.isEmailVerified)!
@@ -137,5 +141,8 @@ class SignInViewController: UIViewController {
         }
     }
     
+    func getFullName(firstName: String?, lastName:String?) -> String {
+        return firstName! + " "  + lastName!
+    }
 
 }

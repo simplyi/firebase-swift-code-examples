@@ -8,6 +8,7 @@
 
 import UIKit
 import FirebaseAuth
+import Firebase
 
 class PasswordResetViewController: UIViewController {
     @IBOutlet weak var emailAddressTextField: UITextField!
@@ -28,9 +29,14 @@ class PasswordResetViewController: UIViewController {
         
         Auth.auth().sendPasswordReset(withEmail: emailAddress) { (error) in
             if error != nil {
+                
+                Analytics.logEvent("password_reset_error", parameters: ["localized_description": error!.localizedDescription])
+                
                 self.showMessage(messageToDisplay: (error?.localizedDescription)!)
                 return
             }
+            
+            Analytics.logEvent("password_reset_success", parameters: nil)
             
             self.dismiss(animated: true, completion: nil)
         }
