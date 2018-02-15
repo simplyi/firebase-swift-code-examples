@@ -248,6 +248,7 @@
                         <outlet property="lastNameTextField" destination="Wmb-xM-o1N" id="PNZ-bO-WZS"/>
                         <outlet property="passwordTextField" destination="jeY-b9-Ncv" id="Tyh-ot-o3R"/>
                         <outlet property="repeatPassword" destination="RO4-Yr-uYh" id="QAq-q5-IbY"/>
+                        <outlet property="signupButton" destination="Srz-lW-zbY" id="8fG-9h-FzP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

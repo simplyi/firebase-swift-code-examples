@@ -48,13 +48,14 @@ class MainPageViewController: UIViewController, UIImagePickerControllerDelegate,
         print("Full name = \(self.welcomeLabel.text!)")
         let storageReference = Storage.storage().reference()
         // Create a reference to the file you want to download
-        let profileImageDownloadUrlReference = storageReference.child("users/\(currentUser!.uid)/profileImage.jpg")
+        let profileImageDownloadUrlReference = storageReference.child("users/\(currentUser!.uid)/thumb_\(currentUser!.uid)-profileImage.jpg")
  
         // Placeholder image
         let placeholderImage = UIImage(named: "placeholder.jpg")
+        self.userProfileImageView.image = placeholderImage
  
         // Load the image using SDWebImage
-        self.userProfileImageView.sd_setImage(with: profileImageDownloadUrlReference, placeholderImage: placeholderImage)
+       // self.userProfileImageView.sd_setImage(with: profileImageDownloadUrlReference, placeholderImage: placeholderImage)
         
   
         // Fetch the download URL
@@ -66,6 +67,13 @@ class MainPageViewController: UIViewController, UIImagePickerControllerDelegate,
             } else {
                 // Get the download URL for 'images/stars.jpg'
                 print("Profile image download URL \(String(describing: url!))")
+                do {
+                    let imageData:NSData = try NSData(contentsOf: url!)
+                    let image = UIImage(data: imageData as Data)
+                    self.userProfileImageView.image = image
+                } catch {
+                    print(error)
+                }
             }
         }
         
@@ -148,7 +156,7 @@ class MainPageViewController: UIViewController, UIImagePickerControllerDelegate,
         
         let storageReference = Storage.storage().reference()
         let currentUser = Auth.auth().currentUser
-        let profileImageRef = storageReference.child("users").child(currentUser!.uid).child("profileImage.jpg")
+        let profileImageRef = storageReference.child("users").child(currentUser!.uid).child("\(currentUser!.uid)-profileImage.jpg")
         
         let uploadMetaData = StorageMetadata()
         uploadMetaData.contentType = "image/jpeg"

@@ -8,7 +8,6 @@
 
 import UIKit
 import Firebase
-import FirebaseMessaging
 import UserNotifications
 
 @UIApplicationMain
@@ -156,6 +155,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     func applicationDidBecomeActive(_ application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        setupAppRemoteConfiguration()
     }
 
     func applicationWillTerminate(_ application: UIApplication) {
@@ -170,6 +171,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             badgeCount = badgeCount-1
         }
         UIApplication.shared.applicationIconBadgeNumber = badgeCount
+    }
+    
+    func setupAppRemoteConfiguration()
+    {
+        let remoteConfigDefaultValues = ["isRegisteredButtonEnabled":"true" as NSObject]
+        RemoteConfig.remoteConfig().setDefaults(remoteConfigDefaultValues)
     }
 
 }
