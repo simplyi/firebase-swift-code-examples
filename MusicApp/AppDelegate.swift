@@ -175,8 +175,28 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     
     func setupAppRemoteConfiguration()
     {
-        let remoteConfigDefaultValues = ["isRegisteredButtonEnabled":"true" as NSObject]
-        RemoteConfig.remoteConfig().setDefaults(remoteConfigDefaultValues)
+        //let remoteConfigDefaultValues = ["isRegisteredButtonEnabled":"true" as NSObject]
+       // RemoteConfig.remoteConfig().setDefaults(remoteConfigDefaultValues)
+        RemoteConfig.remoteConfig().setDefaults(fromPlist: "RemoteConfigDefaults")
+        print("Default value of isRegisteredButtonEnabled = \(RemoteConfig.remoteConfig().configValue(forKey: "isRegisteredButtonEnabled").boolValue)")
+        
+        // Turn on Developer Mode
+        let debugSettings  = RemoteConfigSettings(developerModeEnabled: true)
+        RemoteConfig.remoteConfig().configSettings = debugSettings!
+        
+        RemoteConfig.remoteConfig().fetch(withExpirationDuration: 0) { (status, error) in
+            if error == nil {
+                RemoteConfig.remoteConfig().activateFetched()
+            }
+        }
+        
+        // Cache value will expire in 12 hours
+        /*
+        RemoteConfig.remoteConfig().fetch { (status, error) in
+            if error == nil {
+                RemoteConfig.remoteConfig().activateFetched()
+            }
+        }*/
     }
 
 }

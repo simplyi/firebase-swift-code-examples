@@ -25,12 +25,22 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         
         let isRegisteredButtonEnabled = RemoteConfig.remoteConfig().configValue(forKey: "isRegisteredButtonEnabled").boolValue
         
         signupButton.isEnabled = isRegisteredButtonEnabled
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if !signupButton.isEnabled
+        {
+            showMessage(messageToDisplay: "Due to maintenance, registration is temprorary closed")
+        }
     }
 
     override func didReceiveMemoryWarning() {
@@ -110,6 +120,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func cancelButtonTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
     }
 
     

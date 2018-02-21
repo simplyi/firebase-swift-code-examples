@@ -13,6 +13,7 @@ import MobileCoreServices
 import FirebaseStorage
 import FirebaseStorageUI
 import Firebase
+import FBSDKLoginKit
 
 class MainPageViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet weak var welcomeLabel: UILabel!
@@ -94,8 +95,19 @@ class MainPageViewController: UIViewController, UIImagePickerControllerDelegate,
         do {
             
             Analytics.logEvent("signout", parameters: nil)
+ 
+            for userInfo in (Auth.auth().currentUser?.providerData)!
+            {
+                if userInfo.providerID == "facebook.com"
+                {
+                    FBSDKLoginManager().logOut()
+                    break
+                }
+            }
             
-           try Auth.auth().signOut()
+            
+
+            try Auth.auth().signOut()
             
             let signInPage  = self.storyboard?.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
             

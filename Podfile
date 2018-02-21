@@ -14,6 +14,9 @@ target 'MusicApp' do
   pod 'FirebaseUI/Storage'
   pod 'Firebase/Crash'
   pod 'Firebase/RemoteConfig'
+  pod 'FirebaseUI/Facebook'
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
 
   target 'MusicAppTests' do
     inherit! :search_paths
